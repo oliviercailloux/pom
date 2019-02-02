@@ -1,0 +1,7 @@
+= oliviercailloux POM
+
+image:https://travis-ci.com/oliviercailloux/oliviercailloux-pom.svg?branch=master["Build Status", link="https://travis-ci.com/oliviercailloux/oliviercailloux-pom"]
+//image:https://maven-badges.herokuapp.com/maven-central/io.github.oliviercailloux/oliviercailloux-pom/badge.svg["Artifact on Maven Central", link="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.github.oliviercailloux.oliviercailloux%22%20a%3A%22pom%22"]
+
+A simple POM with reasonable defaults for use in Maven artifacts under my group id.
+
