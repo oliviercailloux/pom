@@ -8,7 +8,7 @@
 	<name>oliviercailloux POM</name>
 	<description>A simple POM with reasonable defaults for use in Maven artifacts under the io.github.oliviercailloux group id.</description>
 	<packaging>pom</packaging>
-	<url>https://github.com/oliviercailloux/oliviercailloux-pom</url>
+	<url>https://github.com/oliviercailloux/pom</url>
 	<licenses>
 		<license>
 			<name>MIT License</name>
@@ -16,9 +16,9 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:git:git://github.com/oliviercailloux/oliviercailloux-pom.git</connection>
-		<developerConnection>scm:git:ssh://github.com/oliviercailloux/oliviercailloux-pom.git</developerConnection>
-		<url>https://github.com/oliviercailloux/oliviercailloux-pom</url>
+		<connection>scm:git:git://github.com/oliviercailloux/pom.git</connection>
+		<developerConnection>scm:git:ssh://github.com/oliviercailloux/pom.git</developerConnection>
+		<url>https://github.com/oliviercailloux/pom</url>
 	</scm>
 	<developers>
 		<developer>
