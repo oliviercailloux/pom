@@ -25,8 +25,8 @@
 			<name>Olivier Cailloux</name>
 			<email>olivier.cailloux@dauphine.fr</email>
 			<url>http://www.lamsade.dauphine.fr/~ocailloux/</url>
-			<organization>Paris-Dauphine</organization>
-			<organizationUrl>http://www.dauphine.fr</organizationUrl>
+			<organization>Université Paris Dauphine - PSL</organization>
+			<organizationUrl>https://dauphine.psl.eu/</organizationUrl>
 		</developer>
 	</developers>
 	<properties>
@@ -34,6 +34,7 @@
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
 		<maven.compiler.release>11</maven.compiler.release>
+		<guava-version>29.0-jre</guava-version>
 	</properties>
 	<build>
 		<plugins>
@@ -73,11 +74,14 @@
 					</plugin>
 					<plugin>
 						<artifactId>maven-javadoc-plugin</artifactId>
-						<version>3.0.1</version>
+						<version>3.2.0</version>
 						<configuration>
 							<links>
-								<link>https://google.github.io/guava/releases/28.2-jre/api/docs/</link>
+								<!-- detectJavaApiLink fails, see https://issues.apache.org/jira/browse/MJAVADOC-592. -->
+								<link>https://docs.oracle.com/en/java/javase/11/docs/api/</link>
+								<link>https://google.github.io/guava/releases/${guava-version}/api/docs/</link>
 							</links>
+							<failOnWarnings>true</failOnWarnings>
 						</configuration>
 						<executions>
 							<execution>
@@ -116,20 +120,6 @@
 			</build>
 		</profile>
 	</profiles>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>ch.qos.logback</groupId>
-				<artifactId>logback-classic</artifactId>
-				<version>1.2.3</version>
-			</dependency>
-			<dependency>
-				<groupId>org.junit.jupiter</groupId>
-				<artifactId>junit-jupiter-engine</artifactId>
-				<version>5.6.2</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -139,17 +129,19 @@
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-			<version>29.0-jre</version>
+			<version>${guava-version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.6.2</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
