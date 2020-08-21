@@ -14,8 +14,8 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:git:git://github.com/oliviercailloux/pom.git</connection>
-		<developerConnection>scm:git:ssh://github.com/oliviercailloux/pom.git</developerConnection>
+		<connection>scm:git:git@github.com:oliviercailloux/pom.git</connection>
+		<developerConnection>scm:git:git@github.com:oliviercailloux/pom.git</developerConnection>
 		<url>https://github.com/oliviercailloux/pom</url>
 	  <tag>v0.0.7</tag>
   </scm>
