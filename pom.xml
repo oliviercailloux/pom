@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.oliviercailloux</groupId>
 	<artifactId>pom</artifactId>
-	<version>0.0.8-SNAPSHOT</version>
+	<version>0.0.8</version>
 	<name>oliviercailloux POM</name>
 	<description>A simple POM with reasonable defaults for use in Maven artifacts under the io.github.oliviercailloux group id.</description>
 	<packaging>pom</packaging>
@@ -25,7 +24,7 @@
 			<name>Olivier Cailloux</name>
 			<email>olivier.cailloux@dauphine.fr</email>
 			<url>http://www.lamsade.dauphine.fr/~ocailloux/</url>
-			<organization>Université Paris Dauphine - PSL</organization>
+			<organization>Universit&#xE9; Paris Dauphine - PSL</organization>
 			<organizationUrl>https://dauphine.psl.eu/</organizationUrl>
 		</developer>
 	</developers>
