@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.oliviercailloux</groupId>
@@ -23,7 +23,7 @@
 			<name>Olivier Cailloux</name>
 			<email>olivier.cailloux@dauphine.fr</email>
 			<url>http://www.lamsade.dauphine.fr/~ocailloux/</url>
-			<organization>Universit&#xE9; Paris Dauphine - PSL</organization>
+			<organization>Université Paris Dauphine - PSL</organization>
 			<organizationUrl>https://dauphine.psl.eu/</organizationUrl>
 		</developer>
 	</developers>
