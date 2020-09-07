@@ -14,11 +14,6 @@
 			<url>https://opensource.org/licenses/MIT</url>
 		</license>
 	</licenses>
-	<scm>
-		<connection>scm:git:git@github.com:oliviercailloux/pom.git</connection>
-		<developerConnection>scm:git:git@github.com:oliviercailloux/pom.git</developerConnection>
-		<url>https://github.com/oliviercailloux/pom</url>
-	</scm>
 	<developers>
 		<developer>
 			<name>Olivier Cailloux</name>
