@@ -122,6 +122,12 @@
 						</executions>
 					</plugin>
 					<plugin>
+						<artifactId>maven-checkstyle-plugin</artifactId>
+						<configuration>
+							<consoleOutput>true</consoleOutput>
+						</configuration>
+					</plugin>
+					<plugin>
 						<artifactId>maven-gpg-plugin</artifactId>
 						<version>1.6</version>
 						<executions>
