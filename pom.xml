@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.oliviercailloux</groupId>
 	<artifactId>pom</artifactId>
@@ -101,11 +103,11 @@
 					</plugin>
 					<plugin>
 						<artifactId>maven-javadoc-plugin</artifactId>
-						<version>3.2.0</version>
+						<version>3.3.1</version>
 						<configuration>
 							<links>
-								<!-- detectJavaApiLink fails, see https://issues.apache.org/jira/browse/MJAVADOC-592. -->
-								<link>https://docs.oracle.com/en/java/javase/11/docs/api/</link>
+								<!-- Otherwise, detectJavaApiLink activates but uses a strange url. -->
+								<link>https://docs.oracle.com/en/java/javase/17/docs/api/</link>
 								<link>https://google.github.io/guava/releases/${guava-version}/api/docs/</link>
 							</links>
 							<failOnWarnings>true</failOnWarnings>
