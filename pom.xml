@@ -37,12 +37,12 @@
 			<plugins>
 				<plugin>
 					<artifactId>maven-checkstyle-plugin</artifactId>
-					<version>3.2.1</version>
+					<version>3.2.2</version>
 					<dependencies>
 						<dependency>
 							<groupId>com.puppycrawl.tools</groupId>
 							<artifactId>checkstyle</artifactId>
-							<version>10.9.2</version>
+							<version>10.9.3</version>
 						</dependency>
 					</dependencies>
 					<configuration>
@@ -105,7 +105,7 @@
 						<configuration>
 							<links>
 								<!-- Otherwise, detectJavaApiLink activates but uses a strange url (at least on some older versions of maven-javadoc-plugin). -->
-								<link>https://docs.oracle.com/en/java/javase/17/docs/api/</link>
+								<!-- <link>https://docs.oracle.com/en/java/javase/17/docs/api/</link> -->
 								<link>https://google.github.io/guava/releases/${guava-version}/api/docs/</link>
 							</links>
 						</configuration>
@@ -140,7 +140,7 @@
 					<plugin>
 						<groupId>org.sonatype.plugins</groupId>
 						<artifactId>nexus-staging-maven-plugin</artifactId>
-						<version>1.6.8</version>
+						<version>1.6.13</version>
 						<extensions>true</extensions>
 						<configuration>
 							<serverId>ossrh</serverId>
@@ -157,7 +157,7 @@
 			<dependency>
 				<groupId>org.junit</groupId>
 				<artifactId>junit-bom</artifactId>
-				<version>5.9.2</version>
+				<version>5.10.1</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -178,7 +178,7 @@
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>1.4.6</version>
+			<version>1.4.14</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
