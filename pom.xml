@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.oliviercailloux</groupId>
 	<artifactId>pom</artifactId>
-	<version>0.0.20-SNAPSHOT</version>
+	<version>0.0.20</version>
 	<name>oliviercailloux POM</name>
 	<description>A simple POM with reasonable defaults for use in Maven artifacts under the io.github.oliviercailloux group id.</description>
 	<packaging>pom</packaging>
