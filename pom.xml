@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.oliviercailloux</groupId>
@@ -23,14 +23,14 @@
 			<name>Olivier Cailloux</name>
 			<email>olivier.cailloux@dauphine.fr</email>
 			<url>https://www.lamsade.dauphine.fr/~ocailloux/</url>
-			<organization>Universit&#xE9; Paris Dauphine - PSL</organization>
+			<organization>Université Paris Dauphine - PSL</organization>
 			<organizationUrl>https://dauphine.psl.eu/</organizationUrl>
 		</developer>
 	</developers>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.release>17</maven.compiler.release>
-		<guava-version>32.0.1-jre</guava-version>
+		<guava-version>32.1.3-jre</guava-version>
 	</properties>
 	<build>
 		<pluginManagement>
@@ -64,15 +64,15 @@
 			<plugin>
 				<!-- JUnit 5 requires Surefire version 2.22.0 or higher -->
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.22.2</version>
+				<version>3.2.2</version>
 			</plugin>
 			<!-- We require a recent version of this plugin because the maven.compiler.release 
 				property is understood only since 3.6 (see https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#release), 
-				whereas the version 3.1 is currently provided by default (see https://maven.apache.org/ref/3.6.3/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging 
-				or https://maven.apache.org/ref/3-LATEST/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging) -->
+				whereas the version 3.1 is currently provided in some versions such as the one in Debian Stable (see https://packages.debian.org/bookworm/maven and https://maven.apache.org/ref/3.8.7/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging VS
+				https://maven.apache.org/ref/3-LATEST/maven-core/default-bindings.html#plugin-bindings-for-jar-packaging) -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.10.1</version>
+				<version>3.11.0</version>
 			</plugin>
 		</plugins>
 	</build>
@@ -101,10 +101,10 @@
 					</plugin>
 					<plugin>
 						<artifactId>maven-javadoc-plugin</artifactId>
-						<version>3.3.1</version>
+						<version>3.6.3</version>
 						<configuration>
 							<links>
-								<!-- Otherwise, detectJavaApiLink activates but uses a strange url. -->
+								<!-- Otherwise, detectJavaApiLink activates but uses a strange url (at least on some older versions of maven-javadoc-plugin). -->
 								<link>https://docs.oracle.com/en/java/javase/17/docs/api/</link>
 								<link>https://google.github.io/guava/releases/${guava-version}/api/docs/</link>
 							</links>
@@ -167,7 +167,7 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>2.0.7</version>
+			<version>2.0.9</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.guava</groupId>
