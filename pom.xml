@@ -1,166 +1,174 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>io.github.oliviercailloux</groupId>
-	<artifactId>pom</artifactId>
-	<version>0.0.23-SNAPSHOT</version>
-	<name>oliviercailloux POM</name>
-	<description>A simple POM with reasonable defaults for use in Maven artifacts under the io.github.oliviercailloux group id.</description>
-	<packaging>pom</packaging>
-	<url>https://github.com/oliviercailloux/pom</url>
-	<licenses>
-		<license>
-			<name>MIT License</name>
-			<url>https://opensource.org/licenses/MIT</url>
-		</license>
-	</licenses>
-	<scm>
-		<connection>scm:git:git@github.com:oliviercailloux/pom.git</connection>
-		<url>https://github.com/oliviercailloux/pom</url>
-	</scm>
-	<developers>
-		<developer>
-			<name>Olivier Cailloux</name>
-			<email>olivier.cailloux@dauphine.fr</email>
-			<url>https://www.lamsade.dauphine.fr/~ocailloux/</url>
-			<organization>Université Paris Dauphine - PSL</organization>
-			<organizationUrl>https://dauphine.psl.eu/</organizationUrl>
-		</developer>
-	</developers>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.release>17</maven.compiler.release>
-		<guava-version>33.1.0-jre</guava-version>
-	</properties>
-	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<artifactId>maven-checkstyle-plugin</artifactId>
-					<version>3.2.2</version>
-					<dependencies>
-						<dependency>
-							<groupId>com.puppycrawl.tools</groupId>
-							<artifactId>checkstyle</artifactId>
-							<version>10.9.3</version>
-						</dependency>
-					</dependencies>
-					<configuration>
-						<configLocation>https://raw.githubusercontent.com/oliviercailloux/Practical-Google-style/v1.2/Practical%20Google%20checks.xml</configLocation>
-						<includeTestSourceDirectory>true</includeTestSourceDirectory>
-					</configuration>
-					<executions>
-						<execution>
-							<id>check style</id>
-							<goals>
-								<goal>check</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-		<plugins>
-			<plugin>
-				<!-- JUnit 5 requires Surefire version 2.22.0 or higher -->
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.2.2</version>
-			</plugin>
-			<!-- We require a recent version of this plugin because the maven.compiler.release 
-				property is understood only since 3.6 (see https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#release), 
-				whereas the version 3.1 is currently provided in some versions such as the one in Debian Stable (see https://packages.debian.org/bookworm/maven and https://maven.apache.org/ref/3.8.7/maven-core/default-bindings.html#plugin-bindings-for-jar-packaging VS
-				https://maven.apache.org/ref/3-LATEST/maven-core/default-bindings.html#plugin-bindings-for-jar-packaging) -->
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.11.0</version>
-			</plugin>
-		</plugins>
-	</build>
-	<profiles>
-		<profile>
-			<id>release</id>
-			<distributionManagement>
-				<snapshotRepository>
-					<id>ossrh</id>
-					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-				</snapshotRepository>
-			</distributionManagement>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-source-plugin</artifactId>
-						<version>3.0.1</version>
-						<executions>
-							<execution>
-								<id>attach-sources</id>
-								<goals>
-									<goal>jar-no-fork</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<artifactId>maven-javadoc-plugin</artifactId>
-						<version>3.6.3</version>
-						<configuration>
-							<links>
-								<!-- Otherwise, detectJavaApiLink activates but uses a strange url (at least on some older versions of maven-javadoc-plugin). -->
-								<!-- <link>https://docs.oracle.com/en/java/javase/17/docs/api/</link> -->
-								<link>https://google.github.io/guava/releases/${guava-version}/api/docs/</link>
-							</links>
-						</configuration>
-						<executions>
-							<execution>
-								<id>attach-javadocs</id>
-								<goals>
-									<goal>jar</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<artifactId>maven-checkstyle-plugin</artifactId>
-						<configuration>
-							<consoleOutput>true</consoleOutput>
-						</configuration>
-					</plugin>
-					<plugin>
-						<artifactId>maven-gpg-plugin</artifactId>
-						<version>1.6</version>
-						<executions>
-							<execution>
-								<id>sign-artifacts</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.sonatype.plugins</groupId>
-						<artifactId>nexus-staging-maven-plugin</artifactId>
-						<version>1.6.13</version>
-						<extensions>true</extensions>
-						<configuration>
-							<serverId>ossrh</serverId>
-							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-							<autoReleaseAfterClose>true</autoReleaseAfterClose>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.junit</groupId>
-				<artifactId>junit-bom</artifactId>
-				<version>5.10.2</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.github.oliviercailloux</groupId>
+  <artifactId>pom</artifactId>
+  <version>0.0.23-SNAPSHOT</version>
+  <name>oliviercailloux POM</name>
+  <description>A simple POM with reasonable defaults for use in Maven artifacts under the io.github.oliviercailloux group id.</description>
+  <packaging>pom</packaging>
+  <url>https://github.com/oliviercailloux/pom</url>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://opensource.org/licenses/MIT</url>
+    </license>
+  </licenses>
+  <scm>
+    <connection>scm:git:git@github.com:oliviercailloux/pom.git</connection>
+    <url>https://github.com/oliviercailloux/pom</url>
+  </scm>
+  <developers>
+    <developer>
+      <name>Olivier Cailloux</name>
+      <email>olivier.cailloux@dauphine.fr</email>
+      <url>https://www.lamsade.dauphine.fr/~ocailloux/</url>
+      <organization>Université Paris Dauphine - PSL</organization>
+      <organizationUrl>https://dauphine.psl.eu/</organizationUrl>
+    </developer>
+  </developers>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>17</maven.compiler.release>
+    <guava-version>33.1.0-jre</guava-version>
+  </properties>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>3.2.2</version>
+          <dependencies>
+            <dependency>
+              <groupId>com.puppycrawl.tools</groupId>
+              <artifactId>checkstyle</artifactId>
+              <version>10.9.3</version>
+            </dependency>
+          </dependencies>
+          <configuration>
+            <configLocation>
+              https://raw.githubusercontent.com/oliviercailloux/Practical-Google-style/v1.2/Practical%20Google%20checks.xml</configLocation>
+            <includeTestSourceDirectory>true</includeTestSourceDirectory>
+          </configuration>
+          <executions>
+            <execution>
+              <id>check style</id>
+              <goals>
+                <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <plugin>
+        <!-- JUnit 5 requires Surefire version 2.22.0 or higher -->
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.2</version>
+      </plugin>
+      <!-- We require a recent version of this plugin because the maven.compiler.release 
+				property is understood only since 3.6 (see
+      https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#release), 
+				whereas the version 3.1 is currently provided in some versions such as the one in Debian Stable
+      (see https://packages.debian.org/bookworm/maven and
+      https://maven.apache.org/ref/3.8.7/maven-core/default-bindings.html#plugin-bindings-for-jar-packaging
+      VS
+      https://maven.apache.org/ref/3-LATEST/maven-core/default-bindings.html#plugin-bindings-for-jar-packaging) -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+      </plugin>
+    </plugins>
+  </build>
+  <profiles>
+    <profile>
+      <id>release</id>
+      <distributionManagement>
+        <snapshotRepository>
+          <id>ossrh</id>
+          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+      </distributionManagement>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>3.0.1</version>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>3.6.3</version>
+            <configuration>
+              <links>
+                <!-- Otherwise, detectJavaApiLink activates but uses a strange url (at least on some
+                older versions of maven-javadoc-plugin). -->
+                <!-- <link>https://docs.oracle.com/en/java/javase/17/docs/api/</link> -->
+                <link>https://google.github.io/guava/releases/${guava-version}/api/docs/</link>
+              </links>
+            </configuration>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <artifactId>maven-checkstyle-plugin</artifactId>
+            <configuration>
+              <consoleOutput>true</consoleOutput>
+            </configuration>
+          </plugin>
+          <plugin>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.6</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <version>1.6.13</version>
+            <extensions>true</extensions>
+            <configuration>
+              <serverId>ossrh</serverId>
+              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+              <autoReleaseAfterClose>true</autoReleaseAfterClose>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>5.10.2</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
       <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
@@ -168,28 +176,28 @@
         <scope>test</scope>
       </dependency>
     </dependencies>
-	</dependencyManagement>
-	<dependencies>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>2.0.12</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>${guava-version}</version>
-		</dependency>
+  </dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>2.0.12</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${guava-version}</version>
+    </dependency>
 
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 </project>
