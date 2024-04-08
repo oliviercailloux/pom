@@ -68,7 +68,7 @@
 			</plugin>
 			<!-- We require a recent version of this plugin because the maven.compiler.release 
 				property is understood only since 3.6 (see https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#release), 
-				whereas the version 3.1 is currently provided in some versions such as the one in Debian Stable (see https://packages.debian.org/bookworm/maven and https://maven.apache.org/ref/3.8.7/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging VS
+				whereas the version 3.1 is currently provided in some versions such as the one in Debian Stable (see https://packages.debian.org/bookworm/maven and https://maven.apache.org/ref/3.8.7/maven-core/default-bindings.html#plugin-bindings-for-jar-packaging VS
 				https://maven.apache.org/ref/3-LATEST/maven-core/default-bindings.html#plugin-bindings-for-jar-packaging) -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
