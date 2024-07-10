@@ -111,9 +111,6 @@
             <version>3.6.3</version>
             <configuration>
               <links>
-                <!-- Otherwise, detectJavaApiLink activates but uses a strange url (at least on some
-                older versions of maven-javadoc-plugin). -->
-                <!-- <link>https://docs.oracle.com/en/java/javase/17/docs/api/</link> -->
                 <link>https://google.github.io/guava/releases/${guava-version}/api/docs/</link>
               </links>
             </configuration>
