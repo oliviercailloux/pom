@@ -124,12 +124,6 @@
             </executions>
           </plugin>
           <plugin>
-            <artifactId>maven-checkstyle-plugin</artifactId>
-            <configuration>
-              <consoleOutput>true</consoleOutput>
-            </configuration>
-          </plugin>
-          <plugin>
             <artifactId>maven-gpg-plugin</artifactId>
             <version>1.6</version>
             <executions>
@@ -152,6 +146,16 @@
               <nexusUrl>https://oss.sonatype.org/</nexusUrl>
               <autoReleaseAfterClose>true</autoReleaseAfterClose>
             </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>strict</id>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-checkstyle-plugin</artifactId>
           </plugin>
         </plugins>
       </build>
