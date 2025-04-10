@@ -8,5 +8,8 @@ image:https://maven-badges.herokuapp.com/maven-central/{groupId}/{artifactId}/ba
 
 A simple POM with reasonable defaults for use in Maven artifacts under my group id.
 
+The release profile is meant for quick and easy releases to Maven Central. 
+The strict profile is meant for producing high quality artifacts. Use `mvn -P "release, strict"`.
+
 See https://github.com/oliviercailloux/JARiS/blob/master/pom.xml[JARiS] for an example use.
 
