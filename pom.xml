@@ -37,23 +37,6 @@
   <build>
     <pluginManagement>
       <plugins>
-        <!-- We require a recent version of this plugin because the maven.compiler.release 
-          property is understood only since 3.6 (see
-        https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#release), 
-          whereas the version 3.1 is currently provided in some versions such as the one in Debian Stable
-        (see https://packages.debian.org/bookworm/maven and
-        https://maven.apache.org/ref/3.8.7/maven-core/default-bindings.html#plugin-bindings-for-jar-packaging
-        VS
-        https://maven.apache.org/ref/3-LATEST/maven-core/default-bindings.html#plugin-bindings-for-jar-packaging) -->
-        <plugin>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.11.0</version>
-        </plugin>
-        <plugin>
-          <!-- JUnit 5 requires Surefire version 2.22.0 or higher -->
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.2.2</version>
-        </plugin>
         <plugin>
           <artifactId>maven-enforcer-plugin</artifactId>
           <version>3.4.1</version>
