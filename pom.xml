@@ -38,57 +38,6 @@
     <pluginManagement>
       <plugins>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.14.1</version>
-          <configuration>
-            <compilerArgs>
-              <arg>-XDcompilePolicy=simple</arg>
-              <arg>--should-stop=ifError=FLOW</arg>
-              <arg>-Xplugin:ErrorProne -XepDisableAllChecks -Xep:BetaApi:ERROR</arg>
-            </compilerArgs>
-            <annotationProcessorPaths>
-              <path>
-                <groupId>com.google.errorprone</groupId>
-                <artifactId>error_prone_core</artifactId>
-                <version>2.39.0</version>
-              </path>
-              <path>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava-beta-checker</artifactId>
-                <version>${betachecker.version}</version>
-              </path>
-            </annotationProcessorPaths>
-          </configuration>
-          <executions>
-            <execution>
-              <id>default-compile</id>
-              <phase>compile</phase>
-              <goals>
-                <goal>compile</goal>
-              </goals>
-              <configuration>
-              </configuration>
-            </execution>
-            <execution>
-              <id>default-testCompile</id>
-              <phase>test-compile</phase>
-              <goals>
-                <goal>testCompile</goal>
-              </goals>
-              <configuration>
-                <!-- Disable Beta Checker for tests
-                 NOTE: in this specific case, we could just NOT enable Error Prone at all -->
-                <compilerArgs>
-                  <arg>-XDcompilePolicy=simple</arg>
-                  <!-- Remove -XepDisableAllChecks to keep all checks enabled -->
-                  <arg>-Xplugin:ErrorProne -XepDisableAllChecks -Xep:BetaApi:OFF</arg>
-                </compilerArgs>
-              </configuration>
-            </execution>
-          </executions>
-        </plugin>
-        <plugin>
           <artifactId>maven-enforcer-plugin</artifactId>
           <version>3.4.1</version>
           <executions>
