@@ -11,7 +11,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>21</maven.compiler.release>
     <enforcer.rules>requireUpperBoundDeps</enforcer.rules>
-    <guava-version>33.4.8-jre</guava-version>
+    <guava-version>33.5.0-jre</guava-version>
     <github-repository>pom</github-repository>
   </properties>
   <url>https://github.com/oliviercailloux/${github-repository}</url>
