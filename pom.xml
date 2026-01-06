@@ -44,6 +44,28 @@
           <version>3.5.4</version>
         </plugin>
         <plugin>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>3.9.0</version>
+          <executions>
+            <execution>
+              <id>usage</id>
+              <goals>
+                <goal>analyze-only</goal>
+              </goals>
+              <configuration>
+                <ignoredUsedUndeclaredDependencies>
+                  <ignoredUsedUndeclaredDependency>org.junit.jupiter:junit-jupiter-api</ignoredUsedUndeclaredDependency>
+                  <ignoredUsedUndeclaredDependency>org.junit.jupiter:junit-jupiter-params</ignoredUsedUndeclaredDependency>
+                </ignoredUsedUndeclaredDependencies>
+                <ignoredUnusedDeclaredDependencies>
+                  <ignoredUnusedDeclaredDependency>ch.qos.logback:logback-classic</ignoredUnusedDeclaredDependency>
+                  <ignoredUnusedDeclaredDependency>org.junit.jupiter:junit-jupiter</ignoredUnusedDeclaredDependency>
+                </ignoredUnusedDeclaredDependencies>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
           <artifactId>maven-source-plugin</artifactId>
           <version>3.0.1</version>
           <executions>
@@ -122,6 +144,14 @@
       </plugins>
     </pluginManagement>
     <plugins>
+      <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>usage</id>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <artifactId>maven-enforcer-plugin</artifactId>
         <version>3.4.1</version>
