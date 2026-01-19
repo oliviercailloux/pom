@@ -50,6 +50,7 @@
                 <goal>analyze-only</goal>
               </goals>
               <configuration>
+                <ignoreUnusedRuntime>true</ignoreUnusedRuntime>
                 <ignoredUsedUndeclaredDependencies>
                   <ignoredUsedUndeclaredDependency>org.junit.jupiter:junit-jupiter-api</ignoredUsedUndeclaredDependency>
                   <ignoredUsedUndeclaredDependency>org.junit.jupiter:junit-jupiter-params</ignoredUsedUndeclaredDependency>
